@@ -25,7 +25,13 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 sudo npm install -g yarn
 
-echo -e "${YELLOW}[6/10] rl-swarm projesi klonlanıyor...${NC}"
+
+
+echo -e "${YELLOW}[6/10] rl-swarm projesi hazırlanıyor...${NC}"
+if [ -d "rl-swarm" ]; then
+    echo "rl-swarm klasörü siliniyor..."
+    rm -rf rl-swarm
+fi
 git clone https://github.com/gensyn-ai/rl-swarm/
 cd rl-swarm
 
@@ -35,9 +41,11 @@ source .venv/bin/activate
 
 echo -e "${YELLOW}[8/10] NPM paketleri güncelleniyor...${NC}"
 cd web/ui
-npm install viem@1.21.4
+rm -f package-lock.json
+npm install --legacy-peer-deps
 cd ../../modal-login
-npm install viem@1.21.4
+rm -f package-lock.json yarn.lock
+npm install --legacy-peer-deps
 cd ..
 
 echo -e "${YELLOW}[9/10] rl-swarm başlatılıyor...${NC}"
