@@ -26,7 +26,6 @@ sudo apt install -y nodejs
 sudo npm install -g yarn
 
 
-
 echo -e "${YELLOW}[6/10] rl-swarm projesi hazırlanıyor...${NC}"
 if [ -d "rl-swarm" ]; then
     echo "rl-swarm klasörü siliniyor..."
@@ -45,12 +44,12 @@ rm -f package-lock.json
 npm install --legacy-peer-deps
 cd ../../modal-login
 rm -f package-lock.json yarn.lock
-npm install --legacy-peer-deps
+npm install --force
+npm install viem@1.21.4 wagmi@1.4.13 @account-kit/core@4.19.0 @account-kit/infra@4.19.0 @account-kit/react@4.19.0 @account-kit/smart-contracts@4.19.0 --force
 cd ..
 
 echo -e "${YELLOW}[9/10] rl-swarm başlatılıyor...${NC}"
 echo "Y" | ./run_rl_swarm.sh
-
 
 
 IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
