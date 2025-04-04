@@ -34,7 +34,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 echo -e "${YELLOW}[7/8] rl-swarm başlatılıyor...${NC}"
-./run_rl_swarm.sh
+echo "Y" | ./run_rl_swarm.sh
 
 IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
 echo -e "${GREEN}==========================================${NC}"
