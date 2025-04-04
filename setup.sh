@@ -48,6 +48,7 @@ npm install viem@2.22.6 wagmi@2.12.7 @account-kit/core@4.20.0 @account-kit/infra
 npm install --force
 
 echo -e "${YELLOW}[9/10] rl-swarm başlatılıyor...${NC}"
+cd rl-swarm
 echo "Y" | ./run_rl_swarm.sh
 
 
