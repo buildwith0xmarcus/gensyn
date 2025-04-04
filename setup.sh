@@ -25,9 +25,7 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 sudo npm install -g yarn
 
-echo -e "${YELLOW}[5/10] Ngrok kurulumu yapılıyor...${NC}"
-chmod +x ngrok_setup.sh
-./ngrok_setup.sh
+
 
 echo -e "${YELLOW}[6/10] rl-swarm projesi klonlanıyor...${NC}"
 git clone https://github.com/gensyn-ai/rl-swarm/
