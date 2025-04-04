@@ -44,9 +44,8 @@ rm -f package-lock.json
 npm install --legacy-peer-deps
 cd ../../modal-login
 rm -f package-lock.json yarn.lock
+npm install viem@2.22.6 wagmi@2.12.7 @account-kit/core@4.20.0 @account-kit/infra@4.20.0 @account-kit/react@4.20.0 @account-kit/smart-contracts@4.20.0 --force
 npm install --force
-npm install viem@1.21.4 wagmi@1.4.13 @account-kit/core@4.19.0 @account-kit/infra@4.19.0 @account-kit/react@4.19.0 @account-kit/smart-contracts@4.19.0 --force
-cd ..
 
 echo -e "${YELLOW}[9/10] rl-swarm başlatılıyor...${NC}"
 echo "Y" | ./run_rl_swarm.sh
