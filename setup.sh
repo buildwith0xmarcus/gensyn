@@ -48,8 +48,8 @@ npm install viem@2.22.6 wagmi@2.12.7 @account-kit/core@4.20.0 @account-kit/infra
 npm install --force
 
 echo -e "${YELLOW}[9/10] rl-swarm başlatılıyor...${NC}"
-cd rl-swarm
-echo "Y" | ./run_rl_swarm.sh
+
+echo "Y" | ./rl-swarm/run_rl_swarm.sh
 
 
 IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
