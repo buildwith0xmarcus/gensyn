@@ -43,9 +43,7 @@ cd ../..
 echo -e "${YELLOW}[9/10] rl-swarm başlatılıyor...${NC}"
 echo "Y" | ./run_rl_swarm.sh
 
-echo -e "${YELLOW}[10/10] Ngrok başlatılıyor...${NC}"
-chmod +x ../start_ngrok.sh
-../start_ngrok.sh
+
 
 IP=$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')
 echo -e "${GREEN}==========================================${NC}"
