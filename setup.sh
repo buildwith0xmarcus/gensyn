@@ -46,9 +46,9 @@ cd ../../modal-login
 rm -f package-lock.json yarn.lock
 npm install viem@2.22.6 wagmi@2.12.7 @account-kit/core@4.20.0 @account-kit/infra@4.20.0 @account-kit/react@4.20.0 @account-kit/smart-contracts@4.20.0 --force
 npm install --force
+cd ../
 
 echo -e "${YELLOW}[9/10] rl-swarm başlatılıyor...${NC}"
-cd ../../
 echo "Y" | ./run_rl_swarm.sh
 
 
