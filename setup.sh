@@ -10,37 +10,42 @@ echo -e "${BLUE}==========================================${NC}"
 echo -e "${BLUE}        Gensyn Kurulum Başlatılıyor        ${NC}"
 echo -e "${BLUE}==========================================${NC}"
 
-echo -e "${YELLOW}[1/9] net-tools kurulumu yapılıyor...${NC}"
+echo -e "${YELLOW}[1/10] net-tools kurulumu yapılıyor...${NC}"
 sudo apt-get update && sudo apt-get upgrade -y
 sudo apt install net-tools -y
 
-echo -e "${YELLOW}[2/9] Temel paketler kuruluyor...${NC}"
+echo -e "${YELLOW}[2/10] Temel paketler kuruluyor...${NC}"
 sudo apt install screen curl iptables build-essential git wget lz4 jq make gcc nano automake autoconf tmux htop nvme-cli libgbm1 pkg-config libssl-dev libleveldb-dev tar clang bsdmainutils ncdu unzip -y
 
-echo -e "${YELLOW}[3/9] Python ve gerekli paketler kuruluyor...${NC}"
+echo -e "${YELLOW}[3/10] Python ve gerekli paketler kuruluyor...${NC}"
 sudo apt install python3 python3-pip python3.10-venv -y
 
-echo -e "${YELLOW}[4/9] Node.js kurulumu yapılıyor...${NC}"
-curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+echo -e "${YELLOW}[4/10] Node.js kurulumu yapılıyor...${NC}"
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt install -y nodejs
 sudo npm install -g yarn
 
-echo -e "${YELLOW}[5/9] Ngrok kurulumu yapılıyor...${NC}"
+echo -e "${YELLOW}[5/10] Ngrok kurulumu yapılıyor...${NC}"
 chmod +x ngrok_setup.sh
 ./ngrok_setup.sh
 
-echo -e "${YELLOW}[6/9] rl-swarm projesi klonlanıyor...${NC}"
+echo -e "${YELLOW}[6/10] rl-swarm projesi klonlanıyor...${NC}"
 git clone https://github.com/gensyn-ai/rl-swarm/
 cd rl-swarm
 
-echo -e "${YELLOW}[7/9] Python sanal ortamı oluşturuluyor...${NC}"
+echo -e "${YELLOW}[7/10] Python sanal ortamı oluşturuluyor...${NC}"
 python3 -m venv .venv
 source .venv/bin/activate
 
-echo -e "${YELLOW}[8/9] rl-swarm başlatılıyor...${NC}"
+echo -e "${YELLOW}[8/10] NPM paketleri güncelleniyor...${NC}"
+cd web/ui
+npm install viem@1.21.4
+cd ../..
+
+echo -e "${YELLOW}[9/10] rl-swarm başlatılıyor...${NC}"
 echo "Y" | ./run_rl_swarm.sh
 
-echo -e "${YELLOW}[9/9] Ngrok başlatılıyor...${NC}"
+echo -e "${YELLOW}[10/10] Ngrok başlatılıyor...${NC}"
 chmod +x ../start_ngrok.sh
 ../start_ngrok.sh
 
