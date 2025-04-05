@@ -40,6 +40,9 @@ source .venv/bin/activate
 echo -e "${YELLOW}[7/8] Python paketleri kuruluyor...${NC}"
 pip install --upgrade pip
 pip install colorlog
+pip install protobuf==5.27.0  # Spesifik protobuf versiyonu
+pip install -r requirements.txt --no-deps
+pip install -r requirements-hivemind.txt --no-deps
 pip install -r requirements.txt
 pip install -r requirements-hivemind.txt
 
